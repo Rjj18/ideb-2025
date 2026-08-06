@@ -1,0 +1,171 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #f4f6f9; 
+    color: #333; 
+    padding: 20px; 
+}
+
+.container { 
+    max-width: 1100px; /* Aumentamos a largura para caber as duas colunas */
+    margin: 0 auto; 
+    background: white; 
+    padding: 30px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+}
+
+h1 { text-align: center; color: #2c3e50; margin-bottom: 10px; }
+
+.page-subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.data-source-block {
+    text-align: center;
+    margin: 0 auto 24px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    display: block;
+    max-width: 700px;
+}
+
+.data-source-label {
+    color: #2c3e50;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+}
+
+.data-source {
+    color: #34495e;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.data-warning {
+    margin: 8px 0 0;
+    font-size: 13px;
+    color: #8a4b00;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.search-box { 
+    display: flex; gap: 10px; margin-bottom: 30px; justify-content: center; 
+}
+
+input { 
+    padding: 12px; width: 70%; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; outline: none;
+}
+input:focus { border-color: #3498db; }
+
+button { 
+    padding: 12px 25px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold;
+}
+button:hover { background-color: #2980b9; }
+
+.school-title {
+    text-align: center; margin-bottom: 30px; color: #2c3e50; font-size: 24px; padding-bottom: 10px; border-bottom: 2px solid #ecf0f1;
+}
+
+/* Flexbox para colocar as etapas lado a lado */
+.grid-resultados {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar a linha em telas menores */
+    gap: 30px;
+}
+
+.coluna-etapa {
+    flex: 1; /* Faz as duas colunas dividirem o espaço igualmente */
+    min-width: 320px; /* Quando a tela for menor que isso, elas empilham */
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.etapa-titulo {
+    text-align: center; margin-bottom: 20px; color: #34495e; font-size: 18px;
+}
+
+.cards { 
+    display: flex; justify-content: space-between; margin-bottom: 20px; gap: 10px;
+}
+
+.card { 
+    background: #ffffff; padding: 15px; border-radius: 8px; width: 32%; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card h4 { margin: 0; color: #7f8c8d; font-size: 12px; text-transform: uppercase; }
+.card p { margin: 10px 0 0; font-size: 22px; font-weight: bold; color: #2c3e50; }
+
+/* Mensagem de dados não disponíveis */
+.sem-dados {
+    text-align: center; color: #7f8c8d; font-style: italic; padding: 40px 0;
+}
+
+.credits {
+    margin-top: 28px;
+    text-align: center;
+    padding-top: 16px;
+    border-top: 1px solid #e9ecef;
+    color: #7f8c8d;
+}
+
+.credit-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.credit-links a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f5f9ff;
+    color: #2c6fa3;
+    border: 1px solid #dcecf9;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.credit-links a:hover {
+    background: #eaf4ff;
+    transform: translateY(-1px);
+}
+
+.credit-links svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.developer-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+@media (max-width: 768px) {
+    .search-box { flex-direction: column; }
+    input { width: 100%; }
+    .cards { flex-direction: column; }
+    .card { width: 100%; }
+    .credit-links { gap: 8px; }
+}

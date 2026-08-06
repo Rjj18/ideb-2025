@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel IDEB 2025 - Visão Integrada</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Painel de Desempenho Institucional (SAEB/IDEB 2025)</h1>
+        <p class="page-subtitle">Consulta visual dos indicadores educacionais das escolas brasileiras</p>
+        <div class="data-source-block">
+            <p class="data-source-label">Fonte dos dados</p>
+            <p class="data-source">INEP - Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira</p>
+            <p class="data-warning">
+                Aviso: os dados apresentados foram retirados do portal do INEP em 06/08/2025. Diversas escolas não possuem dados de IDEB disponíveis, especialmente nos anos finais.
+            </p>
+        </div>
+        
+        <div class="search-box">
+            <!-- O atributo list="listaEscolas" conecta o input ao datalist -->
+            <input type="text" id="searchInput" list="listaEscolas" placeholder="Digite o nome da escola ou INEP...">
+            <datalist id="listaEscolas"></datalist>
+            <button onclick="buscarDados()">Pesquisar</button>
+        </div>
+
+        <div id="resultado" class="results" style="display: none;">
+            <h2 id="nomeEscolaTitulo" class="school-title">Nome da Escola</h2>
+            
+            <div class="grid-resultados">
+                <!-- Coluna Anos Iniciais -->
+                <div class="coluna-etapa" id="blocoIniciais">
+                    <h3 class="etapa-titulo">Anos Iniciais (1º ao 5º)</h3>
+                    <div class="cards">
+                        <div class="card">
+                            <h4>IDEB</h4>
+                            <p id="idebIniciais">-</p>
+                        </div>
+                        <div class="card">
+                            <h4>Matemática</h4>
+                            <p id="matIniciais">-</p>
+                        </div>
+                        <div class="card">
+                            <h4>Português</h4>
+                            <p id="portIniciais">-</p>
+                        </div>
+                    </div>
+                    <canvas id="graficoIniciais"></canvas>
+                </div>
+
+                <!-- Coluna Anos Finais -->
+                <div class="coluna-etapa" id="blocoFinais">
+                    <h3 class="etapa-titulo">Anos Finais (6º ao 9º)</h3>
+                    <div class="cards">
+                        <div class="card">
+                            <h4>IDEB</h4>
+                            <p id="idebFinais">-</p>
+                        </div>
+                        <div class="card">
+                            <h4>Matemática</h4>
+                            <p id="matFinais">-</p>
+                        </div>
+                        <div class="card">
+                            <h4>Português</h4>
+                            <p id="portFinais">-</p>
+                        </div>
+                    </div>
+                    <canvas id="graficoFinais"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <footer class="credits">
+            <div class="credit-links">
+                <a href="https://www.linkedin.com/in/seu-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6.94 8.5A1.56 1.56 0 1 0 6.94 5.38a1.56 1.56 0 0 0 0 3.12ZM5.5 9.75h2.88V18H5.5zM10.5 9.75h2.76v1.12h.04c.38-.73 1.32-1.5 2.72-1.5 2.91 0 3.45 1.91 3.45 4.4V18h-2.88v-7.44c0-1.77-.03-4.05-2.47-4.05-2.47 0-2.84 1.93-2.84 3.92V18H10.5z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.68.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.17-1.12-1.48-1.12-1.48-.92-.64.07-.63.07-.63 1.02.07 1.56 1.06 1.56 1.06.9 1.56 2.37 1.11 2.95.85.09-.66.35-1.11.64-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05A9.6 9.6 0 0 1 12 6.8c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.42.21 2.47.1 2.73.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.06.36.32.68.95.68 1.91 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.49A10.3 10.3 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/>
+                    </svg>
+                </a>
+                <a href="mailto:seu-email@example.com" aria-label="E-mail">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20 6H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Zm0 2-8 5-8-5h16Zm-16 8V8.8l8 5 8-5V16H4Z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="developer-name">Desenvolvido por Roger Oliveira</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
