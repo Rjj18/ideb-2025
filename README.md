@@ -42,7 +42,7 @@ A versão publicada deste projeto está disponível em:
 
 - https://[seu-usuario].github.io/ideb-2025/
 
-> Substitua [seu-usuario] pelo nome do usuário ou organização do repositório no GitHub.
+> Substitua [seu-usuari] pelo nome do usuário ou organização do repositório no GitHub.
 
 ## Licença
 
